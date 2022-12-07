@@ -1,0 +1,16 @@
+@mixin base-card {
+  width: 100%;
+  max-width: 509px;
+  height: 100%;
+  max-height: 336px;
+  padding: 32px;
+  margin: 32px auto 0 auto;
+  background-color: $dirty-white;
+  border-radius: 16px;
+
+  .top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
