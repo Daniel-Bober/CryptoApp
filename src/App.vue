@@ -3,9 +3,21 @@
     <NavBar></NavBar>
 
     <div class="main-section">
-      <div class="current-balance"></div>
-      <div class="summary-chart"></div>
-      <div class="crypto-list"></div>
+      <div class="current-balance-section">
+        <CurrentBalance></CurrentBalance>
+      </div>
+      <div class="summary-chart-section">
+        <SummaryChart></SummaryChart>
+      </div>
+      <div class="tab-navigation-section">
+        <TabNavigation selected="" tabs="">
+          <TheTab title="Summary">Siema</TheTab>
+          <TheTab title="Table"></TheTab>
+          <TheTab title="Charts"></TheTab>
+          <TheTab title="Reporting"></TheTab>
+          <TheTab title="Analysis"></TheTab>
+        </TabNavigation>
+      </div>
 
     </div>
   </main>
@@ -13,6 +25,11 @@
 
 <script lang="ts">
 import NavBar from "@/components/NavBar.vue";
+import CurrentBalance from  "@/components/CurrentBalance.vue"
+import SummaryChart from "@/components/SummaryChart.vue";
+import TabNavigation from "@/components/TabNav/TabNavigation.vue";
+import TheTab from "@/components/TabNav/TheTab.vue";
+
 
 export default {
   components: {NavBar}
