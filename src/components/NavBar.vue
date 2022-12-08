@@ -13,18 +13,8 @@
 </template>
 
 
-<script lang='ts'>
+<script setup lang='ts'>
 
-export default {
-
-  setup() {
-
-
-    return {
-
-    }
-  }
-}
 
 </script>
 
@@ -36,7 +26,6 @@ export default {
   padding: 49px 68px 0 68px;
   display: flex;
   justify-content: space-between;
-  border: 1px solid tomato;
 
   .search-bar {
     width: 100%;
