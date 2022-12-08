@@ -23,7 +23,7 @@
   </main>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import NavBar from "@/components/NavBar.vue";
 import CurrentBalance from  "@/components/CurrentBalance.vue"
 import SummaryChart from "@/components/SummaryChart.vue";
@@ -31,9 +31,7 @@ import TabNavigation from "@/components/TabNav/TabNavigation.vue";
 import TheTab from "@/components/TabNav/TheTab.vue";
 
 
-export default {
-  components: {NavBar}
-}
+
 
 </script>
 
@@ -56,25 +54,22 @@ main {
       "item1 item2"
       "item3 item3";
 
-    .current-balance {
+    .current-balance-section {
       width: 100%;
       height: 100%;
-
 
       grid-area: item1;
     }
-    .summary-chart {
+    .summary-chart-section {
       width: 100%;
       height: 100%;
-      background-color: gray;
 
       grid-area: item2;
     }
-    .crypto-list {
+    .tab-navigation-section {
       width: 100%;
       height: 100%;
-      background-color: #7445FB;
-
+      //background-color: #7445FB;
       grid-area: item3;
     }
 
