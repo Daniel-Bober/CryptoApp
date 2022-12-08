@@ -21,50 +21,26 @@
     </div>
 
     <div class="bottom-section">
-      <BaseButton mode="margin-right-8px">Quick Invest</BaseButton>
-      <BaseButton mode="clear">Show Report</BaseButton>
+      <BaseButton>Quick Invest</BaseButton>
+      <BaseButton :type="ButtonType.Secondary">Show Report</BaseButton>
     </div>
 
 
   </div>
 </template>
 
-<script lang='ts'>
+<script setup lang='ts'>
 import {ref} from "vue";
-
-export default {
-
-  setup() {
-
-    const currentBalance = ref('21 432.23');
-    const percentageGain = ref(12);
+import ButtonType from "@/enums/ButtonType";
 
 
-
-    return {
-      currentBalance,
-      percentageGain
-    }
-  }
-}
+const currentBalance = ref('21 432.23');
+const percentageGain = ref(12);
 </script>
 
 <style lang='scss' scoped>
 .current-balance {
-  width: 100%;
-  max-width: 509px;
-  height: 100%;
-  max-height: 336px;
-  padding: 32px;
-  margin: 32px auto 0 auto;
-  background-color: $dirty-white;
-  border-radius: 16px;
-
-  .top-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  @include base-card;
 
   .mid-section {
     margin-top: 40px;
@@ -97,7 +73,10 @@ export default {
   }
 
   .bottom-section {
+    display: flex;
+    gap: 8px;
     margin-top: 72px;
+
   }
 }
 </style>
