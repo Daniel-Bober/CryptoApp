@@ -1,15 +1,16 @@
 <template>
-  <button :class="mode">
+  <button :class="type">
     <slot></slot>
   </button>
 </template>
 
-<script lang='ts'>
-export default {
-  props: {
-    mode: String
-  }
-}
+<script setup lang='ts'>
+import ButtonType from '../../enums/ButtonType'
+import type {PropType} from "vue";
+
+const props = defineProps({
+    type: String as PropType<ButtonType>
+})
 </script>
 
 <style lang='scss' scoped>
@@ -23,15 +24,9 @@ button {
   border-radius: 4px;
 }
 
-.clear {
+.secondary {
   color: $purple;
   border: 1px solid $light-gray;
   background-color: white;
 }
-
-.margin-right-8px {
-  margin-right: 8px;
-}
-
-
 </style>
