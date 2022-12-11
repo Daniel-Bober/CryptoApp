@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
 import './assets/scss/main.scss'
-import BaseButton from "@/components/UI/BaseButton.vue";
+import BaseButton from "@/components/BaseButton.vue";
 
 const app = createApp(App)
 

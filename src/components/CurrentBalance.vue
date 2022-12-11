@@ -13,7 +13,7 @@
         <span class="font-medium" >{{ currentBalance }}</span>
       </div>
 
-      <div class="gain">
+      <div class="percentage-profit">
         <img src="../assets/icons/profit.svg" alt="profit icon">
         <span>{{ percentageGain }}</span>
         <span>% in last month</span>
@@ -33,7 +33,6 @@
 import {ref} from "vue";
 import ButtonType from "@/enums/ButtonType";
 
-
 const currentBalance = ref('21 432.23');
 const percentageGain = ref(12);
 </script>
@@ -41,6 +40,7 @@ const percentageGain = ref(12);
 <style lang='scss' scoped>
 .current-balance {
   @include base-card;
+
 
   .mid-section {
     margin-top: 40px;
@@ -51,7 +51,7 @@ const percentageGain = ref(12);
       }
     }
 
-    .gain {
+    .percentage-profit {
       display: flex;
       align-items: center;
 
@@ -79,4 +79,18 @@ const percentageGain = ref(12);
 
   }
 }
+
+
+@media (max-width: $screen-size-s) {
+  .current-balance {
+    .mid-section {
+      .balance {
+        span {
+          font-size: 14vw;
+        }
+      }
+    }
+  }
+  }
+
 </style>
