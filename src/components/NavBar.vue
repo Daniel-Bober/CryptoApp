@@ -8,7 +8,6 @@
     <button><img src="../assets/icons/menu_stripes.svg" alt="menu icon"></button>
   </div>
 
-
 </div>
 </template>
 
@@ -53,7 +52,6 @@
     justify-content: space-between;
     flex-shrink: 0;
 
-
     button {
       width: 48px;
       height: 48px;
@@ -62,6 +60,13 @@
       padding: 0;
       transition: $time-hover-anim;
     }
+  }
+}
+
+@media (max-width: $screen-size-m) {
+  .nav-bar {
+    padding: 49px 5% 0 5%;
+
   }
 }
 </style>

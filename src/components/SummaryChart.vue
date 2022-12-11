@@ -42,7 +42,6 @@ const data = {
     data: [20020, 20010, 20022, 20027, 20025, 20012, 20018, 20021, 20035, 20027, 20012, 20000, 20020, 20041, 20052, 20025, 20018, 20007],
     fill: {
       target: 'shape',
-
     },
     borderColor: '#7445FB',
     borderCapStyle: 'round',
@@ -159,5 +158,27 @@ onMounted(() => {
     }
   }
 
+}
+
+@media (max-width: $screen-size-m) {
+ .summary-chart {
+   .mid-section {
+     height: 129px;
+   }
+
+ #chart {
+ width: 200px}
+ }
+}
+
+@media (max-width: $screen-size-m) {
+  .mid-section {
+
+    .balance {
+      span {
+        font-size: 14vw;
+      }
+    }
+  }
 }
 </style>
