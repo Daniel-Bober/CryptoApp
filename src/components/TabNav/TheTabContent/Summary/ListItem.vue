@@ -72,7 +72,6 @@ const props = defineProps({
   },
   logoUrl: {
     type: String,
-    required: true
   }
 });
 
