@@ -14,12 +14,12 @@
 
       <div class="month-group">
         <div class="circle"></div>
-        <span>This month</span>
+        <button @click="">This month</button>
       </div>
 
       <div class="month-group">
         <div class="circle gray"></div>
-        <span>Last month</span>
+        <button @click="">Last month</button>
       </div>
     </div>
   </div>
@@ -30,6 +30,16 @@ import Chart from 'chart.js/auto';
 import {onMounted} from "vue";
 import {getCurrentSummaryChart} from "@/configs/chart";
 
+let balanceSummaryChart: any = null
+
+function toggleData(value: number) {
+const visibleData = balanceSummaryChart.isDatasetVisible(value)
+
+  if(visibleData) {
+    balanceSummaryChart.hide(value)
+  }
+  else balanceSummaryChart.show(value)
+}
 
 onMounted(() => {
 
@@ -42,7 +52,7 @@ onMounted(() => {
   const config = getCurrentSummaryChart(gradientBg)
 
 
-  const balanceSummaryChart = new Chart(
+  balanceSummaryChart = new Chart(
       canvas,
       config
   );
@@ -68,11 +78,14 @@ onMounted(() => {
       display: flex;
       align-items: center;
       gap: 8px;
-    }
 
-    span {
-      font-size: $font-12px;
-      color: $gray;
+      button {
+        font-size: $font-12px;
+        color: $gray;
+        transition: $time-hover-anim;
+        pointer-events: none;
+      }
+
     }
 
     .circle {

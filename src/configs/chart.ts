@@ -7,7 +7,7 @@ export const getCurrentSummaryChart = (gradientBg: CanvasGradient) => {
         labels: labels,
         datasets: [{
             label: 'This month',
-            data: [20010, 20020, 20032, 20033, 20035, 20012, 20018, 20021, 20035, 20027, 20012, 20000, 20020, 20041, 20052, 20025, 20018, 20007],
+            data: [20010, 20020, 20032, 20033, 20035, 20012, 20018, 20021, 20035, 20027, 20012, 20000],
             fill: {
                 target: 'origin',
                 above: gradientBg
@@ -25,7 +25,7 @@ export const getCurrentSummaryChart = (gradientBg: CanvasGradient) => {
         },
             {
                 label: 'Last Month',
-                data: [20010, 20022, 20032, 20037, 20045, 20023, 20028, 20031, 20005, 20037, 20032, 20000, 20030, 20031, 20032, 20035, 20038, 20047],
+                data: [20010, 20022, 20032, 20037, 20045, 20023, 20028, 20031, 20005, 20037, 20032, 20000],
                 borderColor: 'rgba(133, 133, 133, 0.3)',
                 backgroundColor: 'rgba(133, 133, 133, 0.3)',
                 borderCapStyle: 'round',
@@ -52,6 +52,9 @@ const getCurrentSummaryChartConfig = (data: ChartData)=> {
             plugins: {
                 legend: {
                     display: false,
+                },
+                filler: {
+                    drawTime: 'beforeDatasetsDraw'
                 }
             },
             hover: {

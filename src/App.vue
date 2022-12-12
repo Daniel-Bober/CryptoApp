@@ -45,6 +45,7 @@ main {
   height: 92vh;
   background-color: white;
   border-radius: 24px;
+  overflow: hidden;
 
   .main-section {
     height: calc(100% - 97px);
