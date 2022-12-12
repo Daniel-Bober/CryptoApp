@@ -6,12 +6,13 @@
       <div class="main-section__current-balance">
         <CurrentBalance/>
       </div>
+
       <div class="main-section__summary-chart">
         <SummaryChart/>
       </div>
+
       <div class="main-section__tab-navigation">
         <TabNavigation>
-
           <TheTab title="Summary">
             <CryptoCurrencyList/>
           </TheTab>
@@ -33,8 +34,6 @@ import SummaryChart from "@/components/SummaryChart.vue";
 import TabNavigation from "@/components/TabNav/TabNavigation.vue";
 import TheTab from "@/components/TabNav/TheTab.vue";
 import CryptoCurrencyList from "@/components/TabNav/TheTabContent/Summary/CryptocurrencyList.vue";
-
-
 </script>
 
 <style scoped lang="scss">
@@ -61,9 +60,11 @@ main {
     &__current-balance, {
       grid-area: item1;
     }
+
     &__summary-chart {
       grid-area: item2;
     }
+
     &__tab-navigation {
       grid-area: item3;
       display: flex;

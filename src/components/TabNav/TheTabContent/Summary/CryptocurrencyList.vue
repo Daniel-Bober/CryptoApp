@@ -10,7 +10,6 @@
           :id ="index"
           :logo-url="cryptocurrencyLogoList[item.id]?.logo"
       ></ListItem>
-
   </div>
 </template>
 
@@ -19,18 +18,14 @@ import ListItem from "@/components/TabNav/TheTabContent/Summary/ListItem.vue";
 import {onMounted, ref} from "vue";
 import {getCryptocurrencyListRequest, getCryptocurrencyLogoListRequest} from "@/services/apiService";
 
-
-let cryptocurrencyList = ref([])
-let cryptocurrencyLogoList = ref([])
+let cryptocurrencyList = ref([]);
+let cryptocurrencyLogoList = ref([]);
 
 onMounted(async () => {
-  cryptocurrencyList.value = await getCryptocurrencyListRequest()
-  const cryptocurrencyIDs = cryptocurrencyList.value.map((el: any) => {return el.id})
-  cryptocurrencyLogoList.value = await getCryptocurrencyLogoListRequest(cryptocurrencyIDs)
-})
-
-
-
+  cryptocurrencyList.value = await getCryptocurrencyListRequest();
+  const cryptocurrencyIDs = cryptocurrencyList.value.map((el: any) => {return el.id});
+  cryptocurrencyLogoList.value = await getCryptocurrencyLogoListRequest(cryptocurrencyIDs);
+});
 </script>
 
 <style lang='scss' scoped>

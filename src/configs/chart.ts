@@ -91,7 +91,7 @@ const getCurrentSummaryChartConfig = (data: ChartData)=> {
 
 
 
-export const getCryptoCurrencyChart = (chartData: Array<number>, color: any) => {
+export const getCryptoCurrencyChart = (chartData: Array<number>, color: string) => {
     const labels = [1, 2, 3, 4, 5, 6, 7];
 
     const data: ChartData = {
@@ -131,18 +131,6 @@ const getCryptoCurrencyChartConfig = (data: ChartData) => {
             scales: {
                 y: {
                     display: false
-                    // display: true,
-                    // border: {
-                    //     display: false,
-                    //     dash: [1, 6],
-                    //     dashOffset: 10
-                    // },
-                    // grid: {
-                    //     drawTicks: false,
-                    // },
-                    // ticks: {
-                    //     padding: 18,
-                    // }
                 },
                 x: {
                     display: false

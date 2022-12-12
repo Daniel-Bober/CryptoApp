@@ -38,8 +38,6 @@ provide('selectedTab', selectedTab);
   padding: 32px 32px 0;
   margin-top: 32px;
 
-
-
   ul {
     list-style: none;
     display: flex;
@@ -60,6 +58,7 @@ provide('selectedTab', selectedTab);
 }
 
 
+
 @media (max-width: $screen-size-m) {
   .tab-navigation {
     padding: 32px 0 0;
@@ -74,8 +73,6 @@ provide('selectedTab', selectedTab);
         font-size: 4.3vw;
       }
     }
-
   }
 }
-
 </style>

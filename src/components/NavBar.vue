@@ -13,8 +13,6 @@
 
 
 <script setup lang='ts'>
-
-
 </script>
 
 
@@ -62,6 +60,7 @@
     }
   }
 }
+
 
 @media (max-width: $screen-size-m) {
   .nav-bar {

@@ -25,7 +25,6 @@
       <BaseButton :type="ButtonType.Secondary">Show Report</BaseButton>
     </div>
 
-
   </div>
 </template>
 

@@ -11,17 +11,17 @@
     </div>
 
     <div class="bottom-section">
-
       <div class="month-group">
         <div class="circle"></div>
-        <button @click="">This month</button>
+        <button>This month</button>
       </div>
 
       <div class="month-group">
         <div class="circle gray"></div>
-        <button @click="">Last month</button>
+        <button>Last month</button>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -30,40 +30,41 @@ import Chart from 'chart.js/auto';
 import {onMounted} from "vue";
 import {getCurrentSummaryChart} from "@/configs/chart";
 
-let balanceSummaryChart: any = null
+let balanceSummaryChart: Chart;
 
 function toggleData(value: number) {
-const visibleData = balanceSummaryChart.isDatasetVisible(value)
+const visibleData = balanceSummaryChart.isDatasetVisible(value);
 
   if(visibleData) {
-    balanceSummaryChart.hide(value)
+    balanceSummaryChart.hide(value);
   }
-  else balanceSummaryChart.show(value)
+  else balanceSummaryChart.show(value);
 }
 
 onMounted(() => {
-
   const canvas = document.getElementById('chart') as HTMLCanvasElement;
   const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
+
   const gradientBg = ctx.createLinearGradient(0, 0, 0, 130);
   gradientBg.addColorStop(0, '#7445FB99');
   gradientBg.addColorStop(1, '#7445FB00');
 
-  const config = getCurrentSummaryChart(gradientBg)
-
+  const config = getCurrentSummaryChart(gradientBg);
 
   balanceSummaryChart = new Chart(
       canvas,
       config
   );
-})
-
-
+});
 </script>
 
 <style lang='scss' scoped>
 .summary-chart {
   @include base-card;
+
+  .top-section {
+    width: 80%;
+  }
 
   .mid-section {
     height: 189px;
@@ -85,7 +86,6 @@ onMounted(() => {
         transition: $time-hover-anim;
         pointer-events: none;
       }
-
     }
 
     .circle {
@@ -99,7 +99,6 @@ onMounted(() => {
       background-color: #D5D5D6;
     }
   }
-
 }
 
 @media (max-width: $screen-size-m) {
@@ -110,7 +109,6 @@ onMounted(() => {
     align-items: center;
     height: 350px;
   }
-
 }
 
 @media (max-width: $screen-size-s) {
@@ -121,7 +119,5 @@ onMounted(() => {
       width: 80vw;
     }
   }
-
-
 }
 </style>

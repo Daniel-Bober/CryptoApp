@@ -2,19 +2,16 @@
   <div class="list-item">
 
     <div class="basic-info">
-
       <img :src="props.logoUrl"  alt="currency icon">
 
       <div class="wrapper">
         <div class="gray-text">{{ symbol }}</div>
         <div class="bold">{{ name }}</div>
       </div>
-
     </div>
 
     <div class="wrapper">
       <div class="gray-text">Price</div>
-
       <div class="bold">{{ priceFormatter.format(price) }}</div>
     </div>
 
@@ -77,7 +74,6 @@ const props = defineProps({
 
 const redTextBold = 'red-text bold';
 const greenTextBold = 'green-text bold';
-
 const percentageChangeClassName = computed(() => {
   if (props.change < 0) {
     return redTextBold;
@@ -85,20 +81,20 @@ const percentageChangeClassName = computed(() => {
   else return greenTextBold;
 })
 
-const priceFormatter = Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD', minimumSignificantDigits: 3, maximumSignificantDigits: 4})
+const priceFormatter = Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD', minimumSignificantDigits: 3, maximumSignificantDigits: 4});
 
-const chartData = () => {
-  const array = []
-  let randNum = null
+const getSampleChartData = () => {
+  const array = [];
+  let randNum = null;
 
   for (let i = 0; i < 7; i++) {
      randNum =  Math.floor(Math.random() * 10) + 1;
     array.push(randNum);
   }
-  return array
+  return array;
 }
 
-const chartColor = () => {
+const getChartColor = () => {
   if(props.change < 0) {
     return '#EA4D4D';
   }
@@ -109,10 +105,10 @@ onMounted(() => {
 
   const canvas = document.getElementById('chart' + props.id) as HTMLCanvasElement;
 
-  const config = getCryptoCurrencyChart(chartData(), chartColor())
+  const config = getCryptoCurrencyChart(getSampleChartData(), getChartColor());
 
 
-  const balanceSummaryChart = new Chart(
+  new Chart(
       canvas,
       config
   );
