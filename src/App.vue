@@ -3,13 +3,13 @@
     <NavBar/>
 
     <div class="main-section">
-      <div class="current-balance-section">
+      <div class="main-section__current-balance">
         <CurrentBalance/>
       </div>
-      <div class="summary-chart-section">
+      <div class="main-section__summary-chart">
         <SummaryChart/>
       </div>
-      <div class="tab-navigation-section">
+      <div class="main-section__tab-navigation">
         <TabNavigation>
 
           <TheTab title="Summary">
@@ -57,13 +57,13 @@ main {
       "item1 item2"
       "item3 item3";
 
-    .current-balance-section, {
+    &__current-balance, {
       grid-area: item1;
     }
-    .summary-chart-section {
+    &__summary-chart {
       grid-area: item2;
     }
-    .tab-navigation-section {
+    &__tab-navigation {
       grid-area: item3;
       display: flex;
       flex-direction: column;
@@ -87,17 +87,13 @@ main {
       -ms-overflow-style: none;
       scrollbar-width: none;
 
-      .tab-navigation-section {
+      &__tab-navigation {
         min-height: 400px;
       }
     }
 
     .main-section::-webkit-scrollbar {
       display: none;
-    }
-
-    .main-section {
-
     }
   }
 }
