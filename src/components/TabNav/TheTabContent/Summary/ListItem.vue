@@ -3,7 +3,7 @@
 
     <div class="basic-info">
 
-      <img src="src/assets/icons/cryptocurrencies/BTC.svg" alt="currency icon">
+      <img :src="props.logoUrl"  alt="currency icon">
 
       <div class="wrapper">
         <div class="gray-text">{{ symbol }}</div>
@@ -30,7 +30,9 @@
     </div>
 
     <div class="chart-wrapper">
-      <div class="chart"></div>
+      <div class="chart">
+        <canvas :id="'chart' + props.id"></canvas>
+      </div>
     </div>
 
     <div class="buttons-group">
@@ -43,7 +45,9 @@
 <script setup lang='ts'>
 
 import ButtonType from "@/enums/ButtonType";
-import {computed} from "vue";
+import {computed, onMounted} from "vue";
+import {getCryptoCurrencyChart} from "@/configs/chart";
+import Chart from "chart.js/auto";
 
 const props = defineProps({
   symbol: {
@@ -62,6 +66,14 @@ const props = defineProps({
     type: Number,
     required: true
   },
+  id: {
+    type: Number,
+    required: true,
+  },
+  logoUrl: {
+    type: String,
+    required: true
+  }
 });
 
 const redTextBold = 'red-text bold';
@@ -70,11 +82,42 @@ const greenTextBold = 'green-text bold';
 const percentageChangeClassName = computed(() => {
   if (props.change < 0) {
     return redTextBold;
-  } else return greenTextBold;
+  }
+  else return greenTextBold;
 })
 
 const priceFormatter = Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD', minimumSignificantDigits: 3, maximumSignificantDigits: 4})
 
+const chartData = () => {
+  const array = []
+  let randNum = null
+
+  for (let i = 0; i < 7; i++) {
+     randNum =  Math.floor(Math.random() * 10) + 1;
+    array.push(randNum);
+  }
+  return array
+}
+
+const chartColor = () => {
+  if(props.change < 0) {
+    return '#EA4D4D';
+  }
+  else return '#2DC78F';
+};
+
+onMounted(() => {
+
+  const canvas = document.getElementById('chart' + props.id) as HTMLCanvasElement;
+
+  const config = getCryptoCurrencyChart(chartData(), chartColor())
+
+
+  const balanceSummaryChart = new Chart(
+      canvas,
+      config
+  );
+})
 </script>
 
 <style lang='scss' scoped>
@@ -94,6 +137,11 @@ const priceFormatter = Intl.NumberFormat('en-US', {style: 'currency', currency: 
     display: flex;
     gap: 24px;
     width: 160px;
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
   }
 
   .wrapper {
@@ -129,12 +177,12 @@ const priceFormatter = Intl.NumberFormat('en-US', {style: 'currency', currency: 
     flex-grow: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 100%;
 
     .chart {
+      height: 50px;
       width: 150px;
-      height: 100%;
-      background-color: #7445FB;
     }
   }
 
