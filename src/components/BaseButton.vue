@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang='ts'>
-import ButtonType from '../enums/ButtonType'
+import type ButtonType from '../enums/ButtonType'
 import type {PropType} from "vue";
 
 const props = defineProps({

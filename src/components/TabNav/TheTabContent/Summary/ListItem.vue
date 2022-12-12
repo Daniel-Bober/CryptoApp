@@ -20,8 +20,8 @@
 
       <div class="change-group">
         <span :class="percentageChangeClassName">{{ Math.abs(change).toString().substring(0, 4) + '%' }}</span>
-        <img src="src/assets/icons/profit_small.svg" alt="profit icon" v-if="percentageChangeClassName === greenTextBold">
-        <img src="src/assets/icons/lose_small.svg" alt="lose icon" v-else>
+        <img src="@/assets/icons/profit_small.svg" alt="profit icon" v-if="percentageChangeClassName === greenTextBold">
+        <img src="@/assets/icons/lose_small.svg" alt="lose icon" v-else>
       </div>
 
     </div>

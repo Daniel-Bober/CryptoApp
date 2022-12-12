@@ -18,8 +18,8 @@ import ListItem from "@/components/TabNav/TheTabContent/Summary/ListItem.vue";
 import {onMounted, ref} from "vue";
 import {getCryptocurrencyListRequest, getCryptocurrencyLogoListRequest} from "@/services/apiService";
 
-let cryptocurrencyList = ref([]);
-let cryptocurrencyLogoList = ref([]);
+let cryptocurrencyList: any = ref([]);
+let cryptocurrencyLogoList: any = ref([]);
 
 onMounted(async () => {
   cryptocurrencyList.value = await getCryptocurrencyListRequest();
